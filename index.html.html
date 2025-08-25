@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NAYARA Restaurant | Fresh, Fast & Tasty</title>
+  <meta name="description" content="NAYARA Restaurant  sizzling menu, cozy vibes, online table booking, and quick directions. Open today!" />
+  <link rel="icon" href="https://fav.farm/" />
+
+  <!-- Open Graph for better previews -->
+  <meta property="og:title" content="NAYARA Restaurant" />
+  <meta property="og:description" content="Taste the best. Book a table online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" />
+  <meta property="og:url" content="https://example.com" />
+
+  <!-- Basic reset & brand styles (pure CSS, no frameworks) -->
+  <style>
+    :root{
+      --brand:#7c3aed; /* change to your brand color */
+      --dark:#0f172a; --muted:#475569; --bg:#0b1020; --card:#11162a; --ring:#a78bfa;
+      --white:#fff; --soft:#e2e8f0; --accent:#22d3ee; --ok:#34d399; --warn:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#e5e7eb;background:linear-gradient(180deg,#0b1020,#0b1020 50%,#0e162e);}
+
+    /* Container */
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.8);backdrop-filter:blur(10px);border-bottom:1px solid #1f2937}
+    .nav .inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.5px}
+    .logo img{width:36px;height:36px;border-radius:10px}
+    .nav a{color:#cbd5e1;text-decoration:none;margin:0 10px;padding:8px 10px;border-radius:10px}
+    .nav a:hover{background:#111827}
+    .cta{background:var(--brand);color:white !important}
+    .cta:hover{filter:brightness(1.1)}
+    .burger{display:none;background:#111827;border:1px solid #334155;border-radius:10px;padding:8px}
+
+    /* Hero */
+    .hero{padding:56px 0 32px;background:
+      radial-gradient(600px 240px at 10% -10%,rgba(124,58,237,.35),transparent 60%),
+      radial-gradient(600px 240px at 90% 0,rgba(34,211,238,.25),transparent 60%)}
+    .hero .inner{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    .title{font-size:42px;line-height:1.1;margin:0 0 12px}
+    .sub{color:#cbd5e1;margin:0 0 20px}
+    .btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid #334155;color:#e5e7eb;text-decoration:none}
+    .btn.primary{background:var(--brand);border-color:transparent}
+    .hero img{width:100%;height:auto;border-radius:18px;box-shadow:0 10px 50px rgba(124,58,237,.35)}
+
+    /* Sections */
+    section{padding:52px 0;border-top:1px solid #111827}
+    h2{font-size:28px;margin:0 0 14px}
+    p.lead{color:#cbd5e1}
+
+    /* Cards / menu */
+    .grid{display:grid;gap:16px}
+    .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:16px}
+    .menu-item{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;border:1px dashed #293244;background:#0c1226}
+    .price{font-weight:700;color:#f8fafc}
+    .tag{font-size:12px;color:#67e8f9;background:rgba(34,211,238,.15);padding:4px 8px;border-radius:999px;border:1px solid rgba(34,211,238,.25)}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery img{width:100%;height:180px;object-fit:cover;border-radius:14px}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    .field{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+    input,select,textarea{background:#0c1226;border:1px solid #263046;color:#e5e7eb;border-radius:12px;padding:12px}
+    label{color:#cbd5e1;font-size:14px}
+    .note{font-size:12px;color:#a8b3cf}
+    .map{width:100%;height:300px;border:0;border-radius:14px}
+
+    /* Footer */
+    footer{padding:28px 0;color:#a8b3cf;text-align:center;border-top:1px solid #111827}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero .inner{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .menu-grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .burger{display:block}
+      .links{display:none}
+    }
+  </style>
+
+  <!-- Local business schema: edit details for your client -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "NAYARA Restaurant",
+    "image": [
+      "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop"
+    ],
+    "telephone": "+91-9876543210",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "MG Road, Near City Mall",
+      "addressLocality": "Jaipur",
+      "postalCode": "302001",
+      "addressCountry": "IN"
+    },
+    "servesCuisine": ["Indian","Chinese","Biryani"],
+    "priceRange": "",
+    "url": "https://example.com",
+    "menu": "https://example.com/#menu",
+    "openingHours": ["Mo-Su 11:00-23:00"]
+  }
+  </script>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="wrap inner">
+      <div class="logo">
+        <img src="https://i.postimg.cc/7Zj0tFnB/nayara-logo-png.jpg" 
+     alt="Nayara Restro Logo" 
+     style="height:60px; width:auto; border-radius:8px;">
+        <span>NAYARA Restaurant</span>
+      </div>
+      <button class="burger" id="burger" aria-label="menu">?</button>
+      <div class="links" id="links">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#book">Book Table</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap inner">
+      <div>
+        <h1 class="title">Fresh 🍴 Fast ⚡ Tasty 😋 </h1>
+        <p class="sub">Serving lip-smacking bites all day. Book a table online or order for pickup. Open 11 AM 🕐 11 PM.</p>
+        <div class="btns">
+          <a class="btn primary" href="#book">Book a Table</a>
+          <a class="btn" href="tel:+918770404559">Call: +91 98765 43210</a>
+          <a class="btn" href="https://wa.me/+918770404559?text=Hi%20Royal%20Restaurant!" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop" alt="hero" />
+    </div>
+  </header>
+
+  <!-- MENU -->
+  <section id="menu" class="wrap">
+    <h2>Our Menu</h2>
+    <p class="lead">Signature picks. Edit names & prices as per your client.</p>
+    <div class="grid menu-grid">
+      <div class="card">
+        <h3>Starters</h3>
+        <div class="menu-item"><span>Veg Tandoori Platter <span class="tag">Chef's fav</span></span><span class="price">299</span></div>
+        <div class="menu-item"><span>Paneer Tikka</span><span class="price">249</span></div>
+        <div class="menu-item"><span>Chilli Chicken</span><span class="price">269</span></div>
+      </div>
+      <div class="card">
+        <h3>Main Course</h3>
+        <div class="menu-item"><span>Butter veg </span><span class="price">349</span></div>
+        <div class="menu-item"><span>Paneer Butter Masala</span><span class="price">299</span></div>
+        <div class="menu-item"><span>Veg Biryani</span><span class="price">279</span></div>
+      </div>
+      <div class="card">
+        <h3>Breads</h3>
+        <div class="menu-item"><span>Tandoori Roti</span><span class="price">10</span></div>
+        <div class="menu-item"><span>Butter Naan</span><span class="price">25</span></div>
+        <div class="menu-item"><span>Laccha Paratha</span><span class="price">45</span></div>
+      </div>
+      <div class="card">
+        <h3>Drinks & Desserts</h3>
+        <div class="menu-item"><span>Masala Tea</span><span class="price">10</span></div>
+        <div class="menu-item"><span>Masala Soda</span><span class="price">79</span></div>
+        <div class="menu-item"><span>Cold Coffee</span><span class="price">50</span></div>
+        <div class="menu-item"><span>Gulab Jamun (2 pc)</span><span class="price">79</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="wrap">
+    <h2>About Us</h2>
+    <p class="lead">Family-run kitchen serving classics with a modern twist. Cozy ambience, quick service, and quality ingredients. 100% hygiene-focused.</p>
+    <div class="card">
+      <p>Since 2012, NAYARA Restaurant has been a favourite neighborhood spot. From buttery gravies to sizzling grills, everything is cooked fresh. Hosting a party? We do small events and outdoor catering too.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="wrap">
+    <h2>Gallery</h2>
+    <p class="lead">Swap these images with your own.</p>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1000&auto=format&fit=crop" alt="dish" />
+      <img src="https://images.unsplash.com/photo-1544510808-91bcbee1df55?q=80&w=1000&auto=format&fit=crop" alt="dish" />
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop" alt="dish" />
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1000&auto=format&fit=crop" alt="interior" />
+      <img src="https://images.unsplash.com/photo-1526312426976-593c0a202fa6?q=80&w=1000&auto=format&fit=crop" alt="interior" />
+      <img src="https://images.unsplash.com/photo-1533777324565-a040eb52fac1?q=80&w=1000&auto=format&fit=crop" alt="interior" />
+    </div>
+  </section>
+
+  <!-- CONTACT & BOOKING -->
+  <section id="contact" class="wrap">
+    <h2>Find Us</h2>
+    <p class="lead">Tap to call or book on WhatsApp. Directions below.</p>
+    <div class="contact">
+      <div class="card" id="book">
+        <h3>Book a Table</h3>
+        <form id="bookForm">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="date">Date</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+          <div class="field">
+            <label for="time">Time</label>
+            <input id="time" name="time" type="time" required />
+          </div>
+          <div class="field">
+            <label for="guests">Guests</label>
+            <select id="guests" name="guests">
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8+</option>
+            </select>
+          </div>
+          <button class="btn primary" type="submit" style="width:100%">Send on WhatsApp</button>
+          <p class="note">No backend needed. This opens WhatsApp with your details.</p>
+        </form>
+        <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn" href="tel:+918770404559">📲 Call</a>
+          <a class="btn" href="mailto:hello@royalrestaurant.com">📧 Email</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Location</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7156.26533647066!2d76.66594907099336!3d24.010951831078113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397b390048a42d59%3A0xbf2c8fdadc4d12f5!2sNayara%20fuel%20and%20cafe!5e1!3m2!1sen!2sin!4v1755848890833!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap"> <span id="y"></span> NAYARA Restaurant © All rights reserved  <a href="#about" style="color:#cbd5e1">About</a></div>
+  </footer>
+
+  <script>
+    // mobile nav toggle
+    const burger = document.getElementById('burger');
+    const links = document.getElementById('links');
+    burger?.addEventListener('click',()=>{
+      links.style.display = links.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // WhatsApp booking without backend
+    const phone = '+918770404559'; // change to your client's WhatsApp number in international format
+    document.getElementById('bookForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const n = encodeURIComponent(document.getElementById('name').value.trim());
+      const d = encodeURIComponent(document.getElementById('date').value);
+      const t = encodeURIComponent(document.getElementById('time').value);
+      const g = encodeURIComponent(document.getElementById('guests').value);
+      const msg = `Hello NAYARA Restaurant,%0AName: ${n}%0ADate: ${d}%0ATime: ${t}%0AGuests: ${g}`;
+      const url = `https://wa.me/${phone}?text=${msg}`;
+      window.open(url,'_blank');
+    });
+  </script>
+</body>
+</html>
